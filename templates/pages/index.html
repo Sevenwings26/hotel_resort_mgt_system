@@ -114,7 +114,11 @@
           <div class="col-md-6 col-lg-4" data-aos="fade-up">
             <a href="#" class="room">
               <figure class="img-wrap">
-                <img src="" alt="Free website template" class="img-fluid mb-3">
+              {% if 'https' in room.image %}
+                <img src="{{room.image}}" alt="Free website template" class="img-fluid mb-3">
+                {% else %}
+                <img src="{% static room.image %}" alt="Free website template" class="img-fluid mb-3">
+              {% endif %}
               </figure>
               <div class="p-3 text-center room-info">
                 <h2>{{ room.room_type }}</h2>
@@ -148,13 +152,12 @@
                 {% comment %} Slider images  {% endcomment %}
             </div>
           </div>
-        
         </div>
       </div>
     </section>
     <!-- END section -->
     
-    <section class="section bg-image overlay" style="background-image: url('images/hero_3.jpg');">
+    <section class="section bg-image restaurant overlay">
       <div class="container">
         <div class="row justify-content-center text-center mb-5">
           <div class="col-md-7">

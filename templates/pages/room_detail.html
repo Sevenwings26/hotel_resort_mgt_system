@@ -1,0 +1,13 @@
+{% extends 'constants/base.html' %}
+{% load static %}
+{% block content %}
+    <section class="section">
+      <div class="container">
+        <h1>{{ room.get_room_type_display }} Room</h1>
+        <img src="{% static room.image %}" alt="Room Image">
+        <p>Price: {{ room.price }}$ per night</p>
+        <a href="{% url 'book_room' room.slug %}">Book this room</a>
+      </div>
+    </section>
+    
+{% endblock %}
